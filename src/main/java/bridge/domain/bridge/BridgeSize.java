@@ -1,8 +1,10 @@
 package bridge.domain.bridge;
 
-public class BridgeSize {
-    private final int MIN_NUMBER = 3;
-    private final int MAX_NUMBER = 21;
+import bridge.domain.bridge.number.PositiveNumber;
+
+public class BridgeSize implements PositiveNumber {
+    private static final int MIN_NUMBER = 3;
+    private static final int MAX_NUMBER = 21;
     private final int size;
 
     public BridgeSize(final int size) {
@@ -21,5 +23,10 @@ public class BridgeSize {
         if (size < MIN_NUMBER) {
             throw new IllegalArgumentException("3보다 작을 수 없습니다.");
         }
+    }
+
+    @Override
+    public int number() {
+        return size;
     }
 }
