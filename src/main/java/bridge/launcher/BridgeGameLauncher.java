@@ -1,13 +1,13 @@
 package bridge.launcher;
 
-import bridge.launcher.context.BridgeGameContext;
+import bridge.launcher.context.SystemContext;
 import bridge.launcher.status.BridgeGameStatus;
 import bridge.launcher.status.InitStatus;
 
 public class BridgeGameLauncher {
 
-    private final BridgeGameContext bridgeGameContext = new BridgeGameContext();
-    private BridgeGameStatus bridgeGameStatus = new InitStatus(bridgeGameContext);
+    private final SystemContext systemContext = new SystemContext();
+    private BridgeGameStatus bridgeGameStatus = new InitStatus(systemContext);
 
     public void execute() {
         while (bridgeGameStatus.runnable()) {
