@@ -1,5 +1,6 @@
 package bridge.view;
 
+import bridge.domain.bridge.BridgeSize;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.NoSuchElementException;
 
@@ -11,9 +12,9 @@ public class InputView extends IoPrinter {
     /**
      * 다리의 길이를 입력받는다.
      */
-    public int readBridgeSize() {
-        Console.readLine();
-        return 0;
+    public BridgeSize readBridgeSize() {
+        this.println("다리의 길이를 입력해주세요.");
+        return new BridgeSize(this.readIntegerAndAfterNewLine());
     }
 
     /**
@@ -40,6 +41,20 @@ public class InputView extends IoPrinter {
 
     private String readLineAndAfterNewLine() {
         var input = readLine();
+        this.println();
+        return input;
+    }
+
+    private int readInteger() {
+        try {
+            return Integer.parseInt(readLine());
+        } catch (Exception exception) {
+            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+        }
+    }
+
+    private int readIntegerAndAfterNewLine() {
+        var input = readInteger();
         this.println();
         return input;
     }
