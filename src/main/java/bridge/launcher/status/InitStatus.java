@@ -9,7 +9,7 @@ public class InitStatus extends BridgeGameStatus {
 
     @Override
     public BridgeGameStatus next() {
-        this.inputView.readGameCommand();
+        this.outputView.printStartMessage();
         return new InitializeBridgeSizeStatus(context);
     }
 }
