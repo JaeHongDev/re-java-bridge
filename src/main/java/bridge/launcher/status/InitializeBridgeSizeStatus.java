@@ -9,6 +9,10 @@ public class InitializeBridgeSizeStatus extends BridgeGameStatus {
 
     @Override
     public BridgeGameStatus next() {
+        var bridgeSize = this.inputView.readBridgeSize();
+
+        this.bridgeGameContext.generateBridgeGame(bridgeSize);
+
         return new MovePlayerUnitStatus(context);
     }
 }
